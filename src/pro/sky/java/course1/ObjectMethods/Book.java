@@ -1,41 +1,39 @@
 package pro.sky.java.course1.ObjectMethods;
 
+import java.util.Objects;
+
 public class Book {
-    private final String TITLE_BOOK;
-    private final Author AUTHOR;
+    private final String titleBook;
+    private final Author author;
     private int yearOfPublication;
 
     public Book(String titleBook, int yearOfPublication, Author author){
-        this.TITLE_BOOK = titleBook;
+        this.titleBook = titleBook;
         this.yearOfPublication = yearOfPublication;
-        this.AUTHOR = author;
+        this.author = author;
     }
-
     public String getTitleBook(){
-        return TITLE_BOOK;
+        return titleBook;
     }
-
     public int getYearOfPublication(){
         return yearOfPublication;
     }
-
     public void setYearOfPublication(int yearOfPublication) {
         this.yearOfPublication = yearOfPublication;
     }
-
-    public boolean equals(Object other){
-        if (this.getClass() != other.getClass()){
-            return false;
-        }
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) return true;
+        if (other == null || getClass() != other.getClass()) return false;
         Book book = (Book) other;
-        return TITLE_BOOK.equals(book.TITLE_BOOK);
+        return yearOfPublication == book.yearOfPublication && Objects.equals(titleBook, book.titleBook) && Objects.equals(author, book.author);
     }
-
-    public int hashCode(){
-        return java.util.Objects.hash(TITLE_BOOK);
+    @Override
+    public int hashCode() {
+        return Objects.hash(titleBook, author, yearOfPublication);
     }
-
+    @Override
     public String toString(){
-        return "Название книги: " + TITLE_BOOK + " Год публикации: " + yearOfPublication + " " + AUTHOR;
+        return "Название книги: " + titleBook + " Год публикации: " + yearOfPublication + " " + author;
     }
 }
