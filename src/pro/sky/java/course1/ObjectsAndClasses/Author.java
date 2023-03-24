@@ -1,18 +1,18 @@
 package pro.sky.java.course1.ObjectsAndClasses;
 
 public class Author {
-    private final String NAME;
-    private final String SURNAME;
+    private final String name;
+    private final String surname;
 
     public Author(String name, String surname){
-        this.NAME = name;
-        this.SURNAME = surname;
+        this.name = name;
+        this.surname = surname;
     }
 
     public String getName(){
-        return NAME;
+        return name;
     }
     public String getSurname(){
-        return SURNAME;
+        return surname;
     }
 }
