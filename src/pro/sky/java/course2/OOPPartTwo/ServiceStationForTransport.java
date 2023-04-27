@@ -5,51 +5,21 @@ public class ServiceStationForTransport implements ServiceStation {
     @Override
     public void check(Transport[] transports) {
         for (Transport transport : transports) {
-            if (transport.getWheelsCount() == 2) {
+            if (transport instanceof Bicycle) {
                 printModelName(transport);
                 updateTyre(transport);
-            } else if (transport.getWheelsCount() == 4) {
+                System.out.println();
+            } else if (transport instanceof Car) {
                 printModelName(transport);
                 updateTyre(transport);
                 checkEngine(transport);
-            } else if (transport.getWheelsCount() % 2 == 0 && transport.getWheelsCount() >= 6) {
+                System.out.println();
+            } else if (transport instanceof Truck) {
                 printModelName(transport);
                 updateTyre(transport);
                 checkEngine(transport);
                 checkTrailer(transport);
-            }
-        }
-    }
-
-    @Override
-    public void check(Car[] cars){
-        for (Car car : cars) {
-            if (car.getWheelsCount() == 4) {
-                printModelName(car);
-                updateTyre(car);
-                checkEngine(car);
-            }
-        }
-    }
-
-    @Override
-    public void check(Truck[] trucks){
-        for (Truck truck : trucks) {
-            if (truck.getWheelsCount() % 2 == 0 && truck.getWheelsCount() >= 6) {
-                printModelName(truck);
-                updateTyre(truck);
-                checkEngine(truck);
-                checkTrailer(truck);
-            }
-        }
-    }
-
-    @Override
-    public void check(Bicycle[] bicycles){
-        for (Bicycle bicycle : bicycles) {
-            if (bicycle.getWheelsCount() == 2) {
-                printModelName(bicycle);
-                updateTyre(bicycle);
+                System.out.println();
             }
         }
     }

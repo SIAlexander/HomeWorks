@@ -1,31 +1,16 @@
 package pro.sky.java.course2.OOPPartTwo;
 
-import java.util.Objects;
-
 public class Transport {
-    private final String modelName;
-    private final int wheelsCount;
 
-    public Transport(String modelName, int wheelsCount) {
+    private final String modelName;
+    private int wheelsCount;
+
+    public Transport(String modelName) {
         this.modelName = modelName;
-        this.wheelsCount = wheelsCount;
     }
 
     public int getWheelsCount() {
         return wheelsCount;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Transport transport = (Transport) o;
-        return wheelsCount == transport.wheelsCount && Objects.equals(modelName, transport.modelName);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(modelName, wheelsCount);
     }
 
     @Override
