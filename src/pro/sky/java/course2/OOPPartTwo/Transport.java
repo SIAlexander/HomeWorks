@@ -1,5 +1,7 @@
 package pro.sky.java.course2.OOPPartTwo;
 
+import java.util.Objects;
+
 public class Transport {
     private final String modelName;
     private final int wheelsCount;
@@ -9,21 +11,25 @@ public class Transport {
         this.wheelsCount = wheelsCount;
     }
 
-    public String getModelName() {
-        return modelName;
-    }
-
     public int getWheelsCount() {
         return wheelsCount;
     }
 
-    public void updateTyre() {
-        System.out.println("Меняем покрышку");
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Transport transport = (Transport) o;
+        return wheelsCount == transport.wheelsCount && Objects.equals(modelName, transport.modelName);
     }
-    public void checkEngine() {
-        System.out.println("Проверяем двигатель");
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(modelName, wheelsCount);
     }
-    public void checkTrailer() {
-        System.out.println("Проверяем прицеп");
+
+    @Override
+    public String toString() {
+        return modelName;
     }
 }

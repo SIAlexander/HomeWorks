@@ -2,9 +2,17 @@ package pro.sky.java.course2.OOPPartTwo;
 
 public interface ServiceStation {
 
-    void check(Car[] car);
+    void check(Transport[] transports);
 
-    void check(Truck[] truck);
+    void check(Car[] cars);
 
-    void check(Bicycle[] bicycle);
+    void check(Truck[] trucks);
+
+    void check(Bicycle[] bicycles);
+
+    void checkEngine(Transport transports);
+
+    void checkTrailer(Transport transports);
+
+    void updateTyre(Transport transports);
 }
